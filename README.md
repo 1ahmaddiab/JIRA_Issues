@@ -1,10 +1,10 @@
-# Machine Learning Engineer Assignment - JIRA Issues Resolution Date Prediction
+# JIRA Issues Resolution Date Prediction
 
-This assignment is part of the hiring process for the Machine Learning Engineer role at Xccelerated - Part of Xebia company. The project focuses on using machine learning to predict issue resolution times for JIRA, a popular issue tracking and project management tool for software projects.
+The project focuses on using machine learning to predict issue resolution times for JIRA, a popular issue tracking and project management tool for software projects.
 
-## Assignment Details
+## Project Details
 
-The goal of the assignment is to create a web service with three REST endpoints. These endpoints take a JIRA issue key (e.g. AVRO-2171) and predict when that issue will reach the 'Resolved' status.
+The goal of the project is to create a web service with three REST endpoints. These endpoints take a JIRA issue key (e.g. AVRO-2171) and predict when that issue will reach the 'Resolved' status.
 
 Tasks include:
 
@@ -40,27 +40,25 @@ Ensure you have the following installed:
 
 ### Installation (API)
 
-1. Clone the repo: `git clone https://github.com/Xccelerated-Assessments/mle-assessment-1ahmaddiab.git`
-2. Navigate to the project directory: `cd Xccelerated - ML Engineer Assignment - Ahmad Diab`
-3. Navigate to the project directory: `cd mle-assessment-1ahmaddiab`
-4. Navigate to the project directory: `cd API`
-5. Create a new Python virtual environment: `python3 -m venv env`
-6. Activate the virtual environment: `source env/bin/activate`
-7. Install the necessary Python packages: `pip install -r requirements.txt`
-8. If needed for sklearn on different machine: `pip install -U scikit-learn`
+1. Clone the repo: `git clone https://github.com/1ahmaddiab/JIRA_Issues.git`
+2. Navigate to the project directory: `cd My Github Project`
+3. Navigate to the project directory: `cd API`
+4. Create a new Python virtual environment: `python3 -m venv env`
+5. Activate the virtual environment: `source env/bin/activate`
+6. Install the necessary Python packages: `pip install -r requirements.txt`
+7. If needed for sklearn on different machine: `pip install -U scikit-learn`
 
 
 
 ### Installation (Modeling)
 
-1. Clone the repo: `git clone https://github.com/Xccelerated-Assessments/mle-assessment-1ahmaddiab.git`
-2. Navigate to the project directory: `cd Xccelerated - ML Engineer Assignment - Ahmad Diab`
-3. Navigate to the project directory: `cd mle-assessment-1ahmaddiab`
-4. Navigate to the project directory: `cd Modeling`
-5. Create a new Python virtual environment: `python3 -m venv env`
-6. Activate the virtual environment: `source env/bin/activate`
+1. Clone the repo: `git clone https://github.com/1ahmaddiab/JIRA_Issues.git`
+2. Navigate to the project directory: `cd My Github Project`
+3. Navigate to the project directory: `cd Modeling`
+4. Create a new Python virtual environment: `python3 -m venv env`
+5. Activate the virtual environment: `source env/bin/activate`
 <!-- 6. Run in the terminal to install xgboost well: `brew install cmake` -->
-7. Install the necessary Python packages: `pip install -r requirements.txt`
+6. Install the necessary Python packages: `pip install -r requirements.txt`
 
 
 
@@ -93,6 +91,4 @@ Due to these time constraints, the main focus of the project was on the 'avro_is
 
 
 ## Acknowledgements
-
-My sincere thanks go to Xccelerated, particularly Matthijs Brouns and Wesley Boelrijk, for the opportunity to undertake this assignment.
 
