@@ -1,0 +1,7 @@
+API/env/
+API/__pycache__/
+Modeling/__pycache__/
+Modeling/.ipynb_checkpoints/
+Modeling/env/
+Modeling/.pytest_cache/
+*.DS_Store

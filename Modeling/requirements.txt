@@ -1,0 +1,10 @@
+pandas
+numpy
+datetime
+seaborn
+matplotlib
+plotly
+scikit-learn
+xgboost
+h5py
+pytest
