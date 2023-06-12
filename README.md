@@ -82,7 +82,6 @@ The testing work is separated into two projects. One to create, train, and test 
 
 ![](images/API_endpoint_1.png)
 
-
 2. Implementing an endpoint that predicts the resolution date for a single issue in the dataset. This should respond whether the issue is already resolved or not, and return 'HTTP 404' if the issue does not exist.
 
 ![](images/API_endpoint_2a.png)
