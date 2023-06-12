@@ -23,6 +23,13 @@ Also, there are 2 unit test files to test all of the above functions:
 1. test_preprocess_data.py
 2. test_predict_resolution_date.py
 
+## Note
+The Jupyter Notebook in the `Modeling` folder contains interactive visualizations created with Plotly. However, GitHub's native interface does not support the rendering of these interactive elements. 
+
+To fully experience the interactive visualizations, you can use the following link to view the notebook in Jupyter's nbviewer, which does support these interactive elements:
+
+[View Notebook with Interactive Visualizations](https://nbviewer.org/github/1ahmaddiab/JIRA_Issues/blob/master/Modeling/ML%20Predictive%20Model%20Notebook.ipynb)
+
 
 ## Getting Started
 
