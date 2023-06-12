@@ -73,7 +73,7 @@ class TestPredictResolutionDate(unittest.TestCase):
         """
 
         # Expected result for key='AVRO-2171'
-        expected_result = '2018-04-26 17:53:57'
+        expected_result = '2018-04-24 07:30:24'
 
         result = predict_resolution_date(self.df_avro_issues, key='AVRO-2171')
 

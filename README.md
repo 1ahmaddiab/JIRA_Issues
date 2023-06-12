@@ -13,18 +13,15 @@ Tasks include:
 3. Implementing an API endpoint which retrieves all unresolved issues (along with their predicted resolution dates) at the time of the API call and are expected to be resolved by a specified date (in ISO-8601 format).
 
 
-In this project there are 3 functions were created to handle the raw dataset 'avro_issue.csv':
+In this project there are 2 functions were created to handle the raw dataset 'avro_issue.csv':
 
-1. 'outliers_removal.py' converts outliers into NaNs and then during the modeling the NaNs will be removed based on conditions.
-    This function is used in the preprocessing function as a last step
-2. 'preprocessing.py' preprocesses and transforms the data into a suitable format and shape for the modeling phase.
-3. 'predict.py' is the last function that takes the raw dataset, preprocesses it, and then apply the saved Linear Regression model (the model work exist in the 'ML Predictive Model Notebook.ipynb' file) 
+1. 'preprocessing.py' preprocesses and transforms the data into a suitable format and shape for the modeling phase.
+2. 'predict.py' is the last function that takes the raw dataset, preprocesses it, and then apply the saved Linear Regression model (the model work exist in the 'ML Predictive Model Notebook.ipynb' file) 
 
 
-Also, there are 3 unit test files to test all of the above functions:
-1. test_outliers_removal.py
-2. test_preprocess_data.py
-3. test_predict_resolution_date.py
+Also, there are 2 unit test files to test all of the above functions:
+1. test_preprocess_data.py
+2. test_predict_resolution_date.py
 
 
 ## Getting Started
@@ -77,6 +74,21 @@ The testing work is separated into two projects. One to create, train, and test 
 1. Run in the terminal `export FLASK_APP=app.py`
 2. Run the Flask server: `flask run`
 3. Test the API using the provided Postman collection.
+
+
+## Results
+
+1. Implementing an endpoint that runs a (fake) hardcoded resolution for a single issue.
+
+
+2. Implementing an endpoint that predicts the resolution date for a single issue in the dataset. This should respond whether the issue is already resolved or not, and return 'HTTP 404' if the issue does not exist.
+
+
+3. Implementing an API endpoint which retrieves all unresolved issues (along with their predicted resolution dates) at the time of the API call and are expected to be resolved by a specified date (in ISO-8601 format).
+
+
+4. Results of unit testing the created functions (preprocess.py and predict.py)
+
 
 
 ## Limitations

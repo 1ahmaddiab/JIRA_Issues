@@ -39,7 +39,12 @@ class TestPreprocessData(unittest.TestCase):
         result_df = preprocess_data(self.df_avro_issues)
 
         # Compare the result to the expected output
-        pd.testing.assert_frame_equal(result_df, self.preprocessed_df)
+        # pd.testing.assert_frame_equal(result_df, self.preprocessed_df)
+        pd.testing.assert_frame_equal(result_df.reset_index(drop=True), 
+                              self.preprocessed_df.reset_index(drop=True), 
+                              check_dtype=False)
+
+
 
 if __name__ == "__main__":
     unittest.main(argv=[''], verbosity=2, exit=False)

@@ -23,11 +23,12 @@ def resolve_fake3(issue_key):
 @app.route('/api/issue/<issue_key>/resolve-prediction', methods=['GET'])
 def resolve_predict(issue_key):
     issue = get_issue_by_key(issue_key)
+    avro_issues = get_avro_issues_data()
     # Check if the issue key exists in the data
     if issue.empty:
         return jsonify({'error': 'Issue key not found'}), 404
 
-    resolution_date = predict_resolution_date(issue, issue_key)
+    resolution_date = predict_resolution_date(avro_issues, issue_key)
     return jsonify({
         'issue': issue_key,
         'predicted_resolution_date': resolution_date

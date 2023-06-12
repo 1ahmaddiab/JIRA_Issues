@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "244a90f4-29c5-417a-adc1-5f5a6560c5b6",
+		"name": "API Collection - JIRA Issues Resolutiondate Prediction- Ahmad Diab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27661685"
+	},
+	"item": [
+		{
+			"name": "Fake resolution date REST API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/issue/AVRO=9999/resolve-fake3",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"issue",
+						"AVRO=9999",
+						"resolve-fake3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resolution date prediction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/issue/AVRO-2170/resolve-prediction",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"issue",
+						"AVRO-2170",
+						"resolve-prediction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Release planning assistance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/release/2013-04-10/resolved-since-now",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"release",
+						"2013-04-10",
+						"resolved-since-now"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

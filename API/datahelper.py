@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Read the tracking issue CSV file located in data folder
-avro_issues = pd.read_csv('avro-issues.csv')
+avro_issues = pd.read_csv('../data/avro-issues.csv')
 
 
 def get_issue_by_key(issue_key):

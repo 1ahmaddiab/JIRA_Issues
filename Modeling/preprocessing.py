@@ -6,7 +6,6 @@
 
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
-from outliers_removal import remove_outliers
 
 
 def preprocess_data(df):
@@ -74,33 +73,66 @@ def preprocess_data(df):
     # Since the resolutiondate for Closed statuses is the date when the issue is resolved, Closed is replaced by Resolved
     df_issues['status'] = df_issues['status'].replace('Closed', 'Resolved')
 
-    # Ordinal encoding
+#     # Ordinal encoding
+#     status_order = ['Open', 'Patch Available', 'In Progress', 'Resolved', 'Reopened', 'Closed']
+#     priority_order = ['Trivial', 'Minor', 'Major', 'Critical', 'Blocker']
+#     created_day_name_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+#     created_month_name_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+#     ordinal_mapping = {
+#         'status': status_order,
+#         'priority': priority_order,
+#         'created_day_name': created_day_name_order,
+#         'created_month_name': created_month_name_order
+#     }
+
+#     for column, order in ordinal_mapping.items():
+#         df_issues[column] = pd.Categorical(df_issues[column], categories=order, ordered=True)
+#         df_issues[column] = df_issues[column].cat.codes + 1
+#         df_issues[column] = df_issues[column].astype('int64')  # Convert the column to int64 here
+
+#     # One-hot encoding for the nominal category
+#     encoder = LabelEncoder()
+#     df_issues['issue_type'] = encoder.fit_transform(df_issues['issue_type'])
+
+#     # Drop the original categorical and date columns
+#     df_issues.drop(['key', 'created', 'resolutiondate', 'updated', 'created_is_weekend'], axis=1, inplace=True)
+    
+#     # Replaces outliers with NaNs (will be removed in the prediction function)
+#     df_issues_without_days_outliers = remove_outliers(df_issues, 'days_since_created', multiplier=1.5)
+    
+    
+    
+    # Define the order
     status_order = ['Open', 'Patch Available', 'In Progress', 'Resolved', 'Reopened', 'Closed']
-    priority_order = ['Trivial', 'Minor', 'Major', 'Critical', 'Blocker']
-    created_day_name_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    created_month_name_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    # Convert the column to an ordered categorical type
+    df_issues['status'] = pd.Categorical(df_issues['status'], categories=status_order, ordered=True)
+    # Convert the ordered categorical data to codes. Add +1 so the codes start from 1 instead of 0
+    df_issues['status'] = df_issues['status'].cat.codes + 1
 
-    ordinal_mapping = {
-        'status': status_order,
-        'priority': priority_order,
-        'created_day_name': created_day_name_order,
-        'created_month_name': created_month_name_order
-    }
+    
+    
+    # List of columns to one-hot encode
+    cols_to_encode = ['priority', 'created_day_name', 'created_month_name', 'issue_type']
 
-    for column, order in ordinal_mapping.items():
-        df_issues[column] = pd.Categorical(df_issues[column], categories=order, ordered=True)
-        df_issues[column] = df_issues[column].cat.codes + 1
-        df_issues[column] = df_issues[column].astype('int64')  # Convert the column to int64 here
+    # Iterate over the columns to one-hot encode
+    for col in cols_to_encode:
+        # Create the one-hot encoded dataframe
+        one_hot = pd.get_dummies(df_issues[col], prefix=col)
 
-    # One-hot encoding for the nominal category
-    encoder = LabelEncoder()
-    df_issues['issue_type'] = encoder.fit_transform(df_issues['issue_type'])
+        # Drop the original column from the dataframe
+        df_issues.drop(col, axis=1, inplace=True)
+
+        # Concatenate the one-hot encoded dataframe with the original dataframe
+        df_issues = pd.concat([df_issues, one_hot], axis=1)
 
     # Drop the original categorical and date columns
     df_issues.drop(['key', 'created', 'resolutiondate', 'updated', 'created_is_weekend'], axis=1, inplace=True)
     
-    # Replaces outliers with NaNs (will be removed in the prediction function)
-    df_issues_without_days_outliers = remove_outliers(df_issues, 'days_since_created', multiplier=1.5)
     
-    return df_issues_without_days_outliers
+    no_outliers_encoded_df_issues = df_issues[~((df_issues['status'] == 4) & ((df_issues['days_since_created'] == 0) | (df_issues['days_since_created'] > 47)))]
+
+  
+    
+    return no_outliers_encoded_df_issues
 
