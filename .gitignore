@@ -4,4 +4,5 @@ Modeling/__pycache__/
 Modeling/.ipynb_checkpoints/
 Modeling/env/
 Modeling/.pytest_cache/
+.ipynb_checkpoints/
 *.DS_Store

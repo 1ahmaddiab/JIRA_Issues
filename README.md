@@ -80,15 +80,27 @@ The testing work is separated into two projects. One to create, train, and test 
 
 1. Implementing an endpoint that runs a (fake) hardcoded resolution for a single issue.
 
+![](images/API_endpoint_1.png)
+
 
 2. Implementing an endpoint that predicts the resolution date for a single issue in the dataset. This should respond whether the issue is already resolved or not, and return 'HTTP 404' if the issue does not exist.
+
+![](images/API_endpoint_2a.png)
+
+
+'HTTP 404' message when the issue was not exist
+
+![](images/API_endpoint_2b.png)
 
 
 3. Implementing an API endpoint which retrieves all unresolved issues (along with their predicted resolution dates) at the time of the API call and are expected to be resolved by a specified date (in ISO-8601 format).
 
+![](images/API_endpoint_3.png)
+
 
 4. Results of unit testing the created functions (preprocess.py and predict.py)
 
+![](images/unit_testing_results.png)
 
 
 ## Limitations
